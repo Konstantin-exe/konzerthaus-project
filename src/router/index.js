@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    redirect: '/12',
+    redirect: '/ausen',
   },
   { path: '/:slug', component: Main },
   { path: '/notFound(.*)', redirect: '/' },
