@@ -16,7 +16,6 @@
               :roomId="roomId"
             ></modal>
 
-            <!-- web view -->
             <div class="landscape">
               <img
                 class="desktop-room-image"
@@ -239,9 +238,6 @@ export default {
       );
       return selectedRoom.id;
     },
-    // showRoomId() {
-    //   return
-    // }
   },
   created() {
     this.$store.dispatch('fetchDataFromPagesApi');
