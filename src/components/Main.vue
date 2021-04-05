@@ -7,89 +7,89 @@
     <div class="row mx-0">
       <div class="col-md-12 px-0">
         <div class="image">
-          <figure id="imagemap">
-            <!-- modal -->
-            <modal
-              :modalOpen="modalOpen"
-              :closeModal="closeModal"
-              :video="video"
-              :roomId="roomId"
-            ></modal>
+          <!-- <figure id="imagemap"> -->
+          <!-- modal -->
+          <modal
+            :modalOpen="modalOpen"
+            :closeModal="closeModal"
+            :video="video"
+            :roomId="roomId"
+          ></modal>
 
-            <div class="landscape">
-              <img
-                class="desktop-room-image"
-                width="100%"
-                height="100%"
-                alt=""
-                :src="roomDesktopImg(showRoomId)"
-              />
-              <img
-                class="mobile-room-image"
-                width="371"
-                height="590"
-                :src="roomMobileImg(showRoomId)"
-              />
-              <svg
-                width="100%"
-                height="100%"
-                viewBox="0 0 1842 1212"
-                style=" position: absolute"
+          <div class="landscape">
+            <img
+              class="desktop-room-image"
+              width="100%"
+              height="100%"
+              alt=""
+              :src="roomDesktopImg(showRoomId)"
+            />
+            <img
+              class="mobile-room-image"
+              width="371"
+              height="590"
+              :src="roomMobileImg(showRoomId)"
+            />
+            <svg
+              width="100%"
+              height="100%"
+              viewBox="0 0 1842 1212"
+              style=" position: absolute"
+            >
+              <a
+                @click="openModal(showRoomId)"
+                class="li-modal"
+                name="circle-1"
               >
-                <a
-                  @click="openModal(showRoomId)"
-                  class="li-modal"
-                  name="circle-1"
-                >
-                  <circle
-                    cx="300"
-                    cy="200"
-                    r="75"
-                    opacity="0"
-                    fill="none"
-                    stroke="red"
-                    stroke-width="20"
-                  />
-                  <circle cx="300" cy="200" r="50" opacity="0" fill="red" />
-                </a>
-                <a
-                  @click="openModal(showRoomId)"
-                  class="li-modal"
-                  click="findModalExternal"
-                  name="circle-2"
-                >
-                  <circle
-                    cx="800"
-                    cy="600"
-                    r="75"
-                    opacity="0"
-                    fill="none"
-                    stroke="red"
-                    stroke-width="20"
-                  />
-                  <circle cx="800" cy="600" r="50" opacity="0" fill="red" />
-                </a>
+                <circle
+                  cx="300"
+                  cy="200"
+                  r="75"
+                  opacity="0"
+                  fill="none"
+                  stroke="red"
+                  stroke-width="20"
+                />
+                <circle cx="300" cy="200" r="50" opacity="0" fill="red" />
+              </a>
+              <a
+                @click="openModal(showRoomId)"
+                class="li-modal"
+                click="findModalExternal"
+                name="circle-2"
+              >
+                <circle
+                  cx="800"
+                  cy="600"
+                  r="75"
+                  opacity="0"
+                  fill="none"
+                  stroke="red"
+                  stroke-width="20"
+                />
+                <circle cx="800" cy="600" r="50" opacity="0" fill="red" />
+              </a>
 
-                <a
-                  @click="openModal(showRoomId)"
-                  class="li-modal"
-                  click="findModalExternal"
-                  name="circle-3"
-                >
-                  <circle
-                    cx="1100"
-                    cy="1200"
-                    r="75"
-                    opacity="0"
-                    fill="none"
-                    stroke="red"
-                    stroke-width="20"
-                  />
-                  <circle cx="1100" cy="1200" r="50" opacity="0" fill="red" />
-                </a>
-              </svg>
-            </div>
-          </figure>
+              <a
+                @click="openModal(showRoomId)"
+                class="li-modal"
+                click="findModalExternal"
+                name="circle-3"
+              >
+                <circle
+                  cx="1100"
+                  cy="1200"
+                  r="75"
+                  opacity="0"
+                  fill="none"
+                  stroke="red"
+                  stroke-width="20"
+                />
+                <circle cx="1100" cy="1200" r="50" opacity="0" fill="red" />
+              </a>
+            </svg>
+          </div>
+          <!-- </figure> -->
           <div class="scroll-image">
             <img
               class="center-block"
@@ -254,8 +254,17 @@ export default {
 .fixed-menu {
   background-color: white;
 }
-/* Mobile menu visible only on mobile, use bootsrap medium break-point  */
-@media (max-width: 768px) {
+
+img.mobile-room-image {
+  display: block;
+  min-width: 371px;
+  max-width: 576px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobile menu visible only on mobile  */
+@media (max-width: 576px) {
   #portrait-menu {
     display: block;
   }
@@ -295,8 +304,8 @@ export default {
   }
 }
 
-/* Destkop version in widescreen, use bootstrap medium breakpoint */
-@media (min-width: 769px) {
+/* Destkop version in widescreen */
+@media (min-width: 577px) {
   img.desktop-room-image {
     display: block;
   }
@@ -312,6 +321,7 @@ export default {
     right: -100%;
     z-index: 12;
     max-width: 385px;
+    border-radius: 5px;
   }
 
   /* show menu button */
@@ -359,6 +369,8 @@ circle:hover {
 .videoWrapper {
   padding-top: 3%;
   padding-bottom: 5%;
+  /* padding-left: 3%;
+  padding-right: 3%; */
 }
 
 .videoWrapper iframe {
@@ -398,5 +410,8 @@ circle:hover {
 .scroll-image {
   transition: all 0.1s ease-in-out;
   opacity: 0.8;
+  position: absolute;
+  top: 80%;
+  left: 45%;
 }
 </style>

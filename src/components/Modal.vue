@@ -32,7 +32,7 @@
                 <!-- Text aligned rigt -->
 
                 <p>
-                  {{ video.content.rendered }}
+                  {{ clean() }}
                 </p>
               </div>
             </div>
@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import DOMPurify from 'dompurify';
 export default {
   name: 'Modal',
 
@@ -73,6 +74,13 @@ export default {
   created() {
     this.$store.dispatch('fetchDataFromPagesApi');
     this.$store.dispatch('fetchDataFromMediaApi');
+  },
+  methods: {
+    clean() {
+      return DOMPurify.sanitize(this.video.content.rendered, {
+        FORBID_TAGS: ['p'],
+      });
+    },
   },
 };
 </script>

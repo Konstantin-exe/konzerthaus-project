@@ -56,7 +56,7 @@
                   @click="toggleNavbarBottom"
                   type="button"
                 >
-                  - Räume -
+                  Räume
                 </button>
               </div>
             </div>
@@ -198,6 +198,7 @@ export default {
 /* circle image in menu */
 ul {
   list-style: none;
+  padding: 3px 12px 3px 6px;
 }
 .image-circle {
   width: 100px;
@@ -208,6 +209,8 @@ ul {
 }
 
 nav {
-  width: 1000px;
+  /* width: 1000px; */
+}
+#bottom-menu {
 }
 </style>

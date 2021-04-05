@@ -51,7 +51,7 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: 'Footer',
 };
 </script>
 
@@ -63,11 +63,5 @@ footer {
 footer p a {
   font-size: 0.85rem;
   margin-bottom: 1rem;
-}
-
-.scroll-image {
-  position: absolute;
-  top: 80%;
-  left: 45%;
 }
 </style>
