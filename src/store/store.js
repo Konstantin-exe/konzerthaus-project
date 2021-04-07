@@ -5,9 +5,13 @@ import axios from 'axios';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  // data: {
+  //   pagesLoaded: false,
+  // },
   state: {
     dataFromPagesApi: [],
     dataFromMediaApi: [],
+    pagesLoaded: false,
   },
   mutations: {
     SET_PAGES(state, data) {
@@ -22,6 +26,7 @@ export default new Vuex.Store({
       axios
         .get('https://entdecken.konzerthaus.at/c-control/wp-json/wp/v2/pages')
         .then((res) => {
+          this.pagesLoaded = true;
           commit('SET_PAGES', res.data);
         })
         .catch((err) => {

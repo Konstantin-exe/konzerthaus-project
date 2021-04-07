@@ -2,7 +2,9 @@
   <!-- main container -->
   <div
     class="content"
-    v-if="dataFromMediaApi.length > 0 && dataFromPagesApi.length > 0"
+    v-if="
+      dataFromMediaApi.length > 0 && dataFromPagesApi.length > 0 && pagesLoaded
+    "
   >
     <div class="row mx-0">
       <div class="col-md-12 px-0">
@@ -107,15 +109,14 @@
         <!-- <h1>{{ showRoom.title.render }}</h1> -->
 
         <div class="row">
-          <template class="col" v-for="v in videosInMain(showRoomId)">
-            <div class="videoWrapper" :key="v.id">
+          <template class="" v-for="v in videosInMain(showRoomId)">
+            <div class="videoWrapper col-4" :key="v.id">
               <iframe
-                width="auto"
-                height="auto"
-                :src="v.meta_box.video_details.video_iframe_url"
+                :src="videoThumbnail(showRoomId)"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
+                @click="openModal(showRoomId)"
               />
               <div :key="v.name">
                 {{ v.title.rendered }}
@@ -158,6 +159,7 @@ export default {
         return false;
       });
 
+      console.log(desktopImg.media_details.sizes.full.source_url);
       return desktopImg.media_details.sizes.full.source_url;
     },
 
@@ -182,6 +184,7 @@ export default {
     videosInMain(id) {
       const room = this.dataFromPagesApi.find((content) => {
         if (content.meta_box.content_type === 'room' && content.id === id) {
+          console.log('room', this.dataFromPagesApi);
           return true;
         }
         return false;
@@ -195,6 +198,27 @@ export default {
       });
 
       return videosInMain;
+    },
+    videoThumbnail(id) {
+      const room = this.dataFromPagesApi.find((content) => {
+        if (content.meta_box.content_type === 'room' && content.id === id) {
+          // console.log(room);
+          return true;
+        }
+        return false;
+      });
+      const videoImgId = room.meta_box.video_details.video_thumbnail;
+      const videoImg = this.dataFromMediaApi.find((content) => {
+        if (content.id == videoImgId) {
+          return true;
+        }
+        return false;
+      });
+      if (videoImg === undefined) {
+        return;
+      }
+
+      return videoImg.media_details.sizes.thumbnail.source_url;
     },
 
     openModal(id) {
@@ -232,16 +256,21 @@ export default {
     dataFromMediaApi() {
       return this.$store.state.dataFromMediaApi;
     },
+    pagesLoaded() {
+      return this.$store.state.pageLoaded;
+    },
     showRoomId() {
       const selectedRoom = this.dataFromPagesApi.find(
         (content) => content.slug === this.$route.params.slug,
       );
+
       return selectedRoom.id;
     },
   },
   created() {
     this.$store.dispatch('fetchDataFromPagesApi');
     this.$store.dispatch('fetchDataFromMediaApi');
+    this.$store.dispatch('pagesLoaded');
   },
 };
 </script>
@@ -367,18 +396,22 @@ circle:hover {
 }
 /* video container 16:9 responsive */
 .videoWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
   padding-top: 3%;
   padding-bottom: 5%;
+
   /* padding-left: 3%;
   padding-right: 3%; */
 }
 
 .videoWrapper iframe {
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; */
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  width: auto;
+  /* height: 100%; */
 }
 
 .logo-top {

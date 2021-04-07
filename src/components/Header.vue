@@ -115,7 +115,10 @@ export default {
         }
         return false;
       });
-      return desktopImg.media_details.sizes.medium_large.source_url;
+      if (desktopImg === undefined) {
+        return;
+      }
+      return desktopImg.media_details.sizes.thumbnail.source_url;
     },
     /* animate right menu on button click */
     toggleNavbarRight() {
@@ -184,6 +187,7 @@ export default {
         }
         return false;
       });
+
       return rooms;
     },
   },
