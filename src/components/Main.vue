@@ -1,11 +1,6 @@
 <template>
   <!-- main container -->
-  <div
-    class="content"
-    v-if="
-      dataFromMediaApi.length > 0 && dataFromPagesApi.length > 0 && pagesLoaded
-    "
-  >
+  <div class="content">
     <div class="row mx-0">
       <div class="col-md-12 px-0">
         <div class="image">
@@ -214,9 +209,9 @@ export default {
         }
         return false;
       });
-      if (videoImg === undefined) {
-        return;
-      }
+      // if (videoImg === undefined) {
+      //   return;
+      // }
 
       return videoImg.media_details.sizes.thumbnail.source_url;
     },
@@ -256,9 +251,9 @@ export default {
     dataFromMediaApi() {
       return this.$store.state.dataFromMediaApi;
     },
-    pagesLoaded() {
-      return this.$store.state.pageLoaded;
-    },
+    // pagesLoaded() {
+    //   return this.$store.state.pageLoaded;
+    // },
     showRoomId() {
       const selectedRoom = this.dataFromPagesApi.find(
         (content) => content.slug === this.$route.params.slug,
@@ -270,7 +265,7 @@ export default {
   created() {
     this.$store.dispatch('fetchDataFromPagesApi');
     this.$store.dispatch('fetchDataFromMediaApi');
-    this.$store.dispatch('pagesLoaded');
+    // this.$store.dispatch('pagesLoaded');
   },
 };
 </script>
