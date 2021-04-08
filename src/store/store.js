@@ -5,14 +5,12 @@ import axios from 'axios';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  data: {
-    // pagesLoaded: false,
-    // mediaLoaded: false,
-  },
+  data: {},
   state: {
     dataFromPagesApi: [],
     dataFromMediaApi: [],
-    // pagesLoaded: false,
+    dataFromPagesApiLoaded: false,
+    dataFromMediaApiLoaded: false,
   },
   mutations: {
     SET_PAGES(state, data) {
@@ -21,20 +19,23 @@ export default new Vuex.Store({
     SET_MEDIA(state, data) {
       state.dataFromMediaApi = data;
     },
-    // PAGES_LOADED(state, data) {
-    //   state.pagesLoaded = data;
-    // },
+    SET_PAGES_LOADED(state, data) {
+      state.dataFromPagesApiLoaded = data;
+    },
+    SET_MEDIA_LOADED(state, data) {
+      state.dataFromMediaApiLoaded = data;
+    },
   },
   actions: {
     fetchDataFromPagesApi({ commit }) {
       axios
-        .get('https://entdecken.konzerthaus.at/c-control/wp-json/wp/v2/pages')
+        .get(
+          'https://entdecken.konzerthaus.at/c-control/wp-json/wp/v2/pages?per_page=100',
+        )
         .then((res) => {
-          // commit('PAGES_LOADED', true);
-          console.log(res);
-          if (res.status === 200) {
+          if (res.status == 200) {
+            commit('SET_PAGES_LOADED', true);
             commit('SET_PAGES', res.data);
-            console.log('happend');
           }
         })
         .catch((err) => {
@@ -43,9 +44,12 @@ export default new Vuex.Store({
     },
     fetchDataFromMediaApi({ commit }) {
       axios
-        .get('https://entdecken.konzerthaus.at/c-control/wp-json/wp/v2/media')
+        .get(
+          'https://entdecken.konzerthaus.at/c-control/wp-json/wp/v2/media?per_page=100',
+        )
         .then((res) => {
-          if (res.data.status === 'success') {
+          if (res.status == 200) {
+            commit('SET_MEDIA_LOADED', true);
             commit('SET_MEDIA', res.data);
           }
         })

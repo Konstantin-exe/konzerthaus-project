@@ -52,7 +52,7 @@ export default {
     modalOpen: {
       required: true,
     },
-    roomId: {
+    videoId: {
       required: true,
     },
     closeModal: {

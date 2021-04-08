@@ -89,18 +89,13 @@ import $ from 'jquery';
 export default {
   name: 'Header',
   data() {
-    return {
-      navOpen: false,
-    };
+    return {};
   },
   // created() {
   //   window.addEventListener('toggleNavBarRight', this.toggleNavbarRight),
   //     window.addEventListener('toggleNavBarBottom', this.toggleNavbarBottom);
   // },
   methods: {
-    openNav() {
-      this.navOpen = !this.navOpen;
-    },
     roomThumbnailImg(id) {
       const room = this.dataFromPagesApi.find((content) => {
         if (content.meta_box.content_type === 'room' && content.id === id) {
