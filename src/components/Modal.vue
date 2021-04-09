@@ -28,7 +28,7 @@
                   allowfullscreen=""
                 ></iframe>
               </div>
-              <div class="col-sm">
+              <div class="col-sm content-wrapper-modal">
                 <!-- Text aligned rigt -->
 
                 <p>
@@ -111,6 +111,10 @@ export default {
   vertical-align: middle;
 }
 
+.content-wrapper-modal {
+  overflow: auto;
+}
+
 .modal-container {
   /* position: relative; */
   justify-content: center;
@@ -131,7 +135,7 @@ export default {
   height: 50vh;
   margin: 20px 0;
   min-height: 0px;
-  overflow-y: scroll;
+  overflow: auto;
 }
 #modal-video {
   /* position: absolute; */
@@ -156,5 +160,17 @@ export default {
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+@media (max-width: 577px) {
+  .modal-container {
+    overflow-y: scroll;
+    background-color: #fff;
+    width: 100%;
+
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+    transition: all 0.3s ease;
+  }
 }
 </style>

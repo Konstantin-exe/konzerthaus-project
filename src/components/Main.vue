@@ -1,7 +1,7 @@
 <template>
   <!-- main container -->
   <div
-    class="content"
+    class="content overhaul"
     v-if="
       $store.state.dataFromPagesApiLoaded && $store.state.dataFromMediaApiLoaded
     "
@@ -306,6 +306,11 @@ img.mobile-room-image {
   circle {
     opacity: 0.5;
   }
+  .overhaul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* Destkop version in widescreen */
@@ -450,5 +455,15 @@ circle:hover {
   bottom: 2%;
 
   left: 45%;
+}
+
+@media (max-width: 576px) {
+  .scroll-image {
+    transition: all 0.1s ease-in-out;
+    opacity: 0.8;
+    position: absolute;
+    bottom: 16vh;
+    left: 40%;
+  }
 }
 </style>
