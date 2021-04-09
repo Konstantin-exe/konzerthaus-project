@@ -94,13 +94,6 @@ export default {
   width: 100%;
 }
 
-/* .videoWrapper iframe {
-  position: absolute;
-  top: 100;
-  left: 0;
-  width: 100%;
-  height: 100%;
-} */
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -119,10 +112,12 @@ export default {
 }
 
 .modal-container {
-  width: 85%;
-
+  /* position: relative; */
+  justify-content: center;
+  width: 70%;
   margin: 40px auto;
   padding: 20px 30px;
+  overflow-y: scroll;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
@@ -130,9 +125,19 @@ export default {
 }
 
 .modal-body {
-  margin: 20px 0;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
   height: 50vh;
+  margin: 20px 0;
+  min-height: 0px;
   overflow-y: scroll;
+}
+#modal-video {
+  /* position: absolute; */
+  height: 70%;
+  width: 100%;
+  /* margin-top: 20px; */
 }
 
 .modal-default-button {

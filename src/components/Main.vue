@@ -9,7 +9,10 @@
     <div class="row mx-0 ">
       <div class="col-md-12 px-0 ">
         <div class="image">
-          <!-- <figure id="imagemap"> -->
+          <a hidden href="https://github.com/Konstantin-exe"
+            >greetings from the Dev who build this site (2021) - have a nice
+            day!</a
+          >
           <!-- modal -->
           <modal
             :modalOpen="modalOpen"
@@ -181,6 +184,9 @@ export default {
           }
           return false;
         });
+        if (videoImg === undefined) {
+          return 'https://entdecken.konzerthaus.at/c-control/wp-content/uploads/2021/04/pngegg.png';
+        }
         return videoImg.media_details.sizes.medium.source_url;
       }
     },
@@ -315,10 +321,12 @@ img.mobile-room-image {
     display: none;
   }
   #top-menu {
+    overflow: scroll;
     position: fixed;
     top: 62px;
     right: -100%;
     z-index: 12;
+    max-height: 100vh;
     max-width: 385px;
     border-radius: 5px;
   }
@@ -367,22 +375,25 @@ circle:hover {
 }
 .video-h1 {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 .video-container {
-  width: 100%;
+  /* width: 100%; */
   justify-content: center;
   justify-content: space-evenly;
 }
 .li-modal {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 320px;
 }
-.single-video-container {
-  /* display: flex;
-  flex-direction: row;
-  width: 100%; */
+.single-video-container img {
+  /* display: flex; */
+  /* flex-direction: row; */
+  width: 310px;
+  height: 180px;
 }
+
 /* video container 16:9 responsive */
 .videoWrapper {
   display: flex;
@@ -390,9 +401,10 @@ circle:hover {
   border: none;
   flex-wrap: wrap;
   width: auto;
-  padding-top: 3%;
+  /* padding-top: 3%; */
   padding-bottom: 5%;
   /* margin-right: 10px; */
+
   overflow: hidden;
 }
 
@@ -437,6 +449,6 @@ circle:hover {
   position: absolute;
   bottom: 2%;
 
-  left: 50%;
+  left: 45%;
 }
 </style>
