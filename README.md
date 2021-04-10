@@ -11,6 +11,8 @@ This single-app was build for _Wiener_Konzerthaus_ for their virtuel tour due to
 ### Modal
 Modal open by just clicking on the video thumbnails. 
 
+<img width="1433" alt="Screenshot 2021-04-10 at 19 10 48" src="https://user-images.githubusercontent.com/70595672/114278545-a3ac0700-9a30-11eb-9ff7-302828976ddf.png">
+
 
 ## Project setup
 `Vue.js`
