@@ -3,7 +3,7 @@
 This single-app was build for _Wiener_Konzerthaus_ for their virtuel tour due to the Covid-19 lockdown.
 
 ### Desktop view (wide-screen):
-(https://user-images.githubusercontent.com/70595672/114278296-714dda00-9a2f-11eb-9e72-9d944d55d25b.png)
+https://user-images.githubusercontent.com/70595672/114278296-714dda00-9a2f-11eb-9e72-9d944d55d25b.png
 
 ### Mobile view:
 (https://user-images.githubusercontent.com/70595672/114278315-875b9a80-9a2f-11eb-930b-56f9c71fbfa7.png)
