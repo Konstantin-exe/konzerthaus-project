@@ -1,4 +1,4 @@
-# konzerthaus-project
+# konzerthaus-project (Not publicly released version)
 
 This single-app was build for _Wiener_Konzerthaus_ for their virtuel tour due to the Covid-19 lockdown.
 
@@ -7,6 +7,10 @@ This single-app was build for _Wiener_Konzerthaus_ for their virtuel tour due to
 
 ### Mobile view:
 ![Screenshot 2021-04-10 at 18 55 26](https://user-images.githubusercontent.com/70595672/114278315-875b9a80-9a2f-11eb-930b-56f9c71fbfa7.png)
+
+### Modal
+Modal open by just clicking on the video thumbnails. 
+
 
 ## Project setup
 `Vue.js`
