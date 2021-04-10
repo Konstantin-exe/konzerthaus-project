@@ -118,18 +118,18 @@ export default {
     /* animate right menu on button click */
     toggleNavbarRight() {
       const el = $('#top-menu');
-      const divHeight = el.height();
+      // const divHeight = el.height();
       const position = el.position();
-      const buttonWidth = $('#navbar-right-toggler').width();
+      // const buttonWidth = $('#navbar-right-toggler').width();
       const width = el.width();
       const documentWidth = $(document).width();
-      console.log('Div height: ' + divHeight);
-      console.log(
-        'Position - left: ' + position.left + ' top: ' + position.top,
-      );
-      console.log('element Width: ' + width);
-      console.log('Button width: ' + buttonWidth);
-      console.log('documentWidth: ' + documentWidth);
+      // console.log('Div height: ' + divHeight);
+      // console.log(
+      //   'Position - left: ' + position.left + ' top: ' + position.top,
+      // );
+      // console.log('element Width: ' + width);
+      // console.log('Button width: ' + buttonWidth);
+      // console.log('documentWidth: ' + documentWidth);
 
       if (position.left < documentWidth) {
         el.animate({
@@ -157,13 +157,13 @@ export default {
             duration: 500,
             height: menuHeight,
           });
-          buttonName.text(' X Räume X');
+          buttonName.text('Schließen');
         } else {
           el.animate({
             duration: 500,
             height: 80,
           });
-          buttonName.text(' - Räume -');
+          buttonName.text('Räume');
         }
       });
     },
@@ -205,11 +205,5 @@ ul {
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 0.5rem;
-}
-
-nav {
-  /* width: 1000px; */
-}
-#bottom-menu {
 }
 </style>

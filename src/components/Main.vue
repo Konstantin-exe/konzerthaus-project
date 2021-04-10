@@ -264,12 +264,34 @@ img.mobile-room-image {
 }
 
 /* Mobile menu visible only on mobile  */
+@media (max-width: 360px) {
+  .video-h1 {
+    position: absolute;
+    top: 660px;
+  }
+  .logo-top {
+    position: fixed;
+    width: 0;
+    margin: 0;
+  }
+  .video-container {
+    margin-top: 200px;
+  }
+  .overhaul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 @media (max-width: 576px) {
   #portrait-menu {
     display: block;
+    height: 70vh;
+    overflow: auto;
   }
   #bottom-menu {
     position: fixed;
+    height: 80vh;
     bottom: 0;
     right: 0;
     left: 0;
