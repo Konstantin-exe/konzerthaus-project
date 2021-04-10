@@ -1,24 +1,14 @@
 # konzerthaus-project
 
+This single-app was build for _Wiener_Konzerthaus_ for their virtuel tour due to the Covid-19 lockdown.
+
+
 ## Project setup
-```
-yarn install
-```
+`Vue.js`
+`Wordpress REST API CMS`
+`Bootsrap`
+`jQuery`
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+In addition to this project you can find the repo `final-project`. This is a clone of this repo and has in addition a authentication function to it. 
+Therefore I build an API with `Next.js` which can be found in the repo `auth_api`.
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
