@@ -91,10 +91,7 @@ export default {
   data() {
     return {};
   },
-  // created() {
-  //   window.addEventListener('toggleNavBarRight', this.toggleNavbarRight),
-  //     window.addEventListener('toggleNavBarBottom', this.toggleNavbarBottom);
-  // },
+
   methods: {
     roomThumbnailImg(id) {
       const room = this.dataFromPagesApi.find((content) => {
@@ -118,18 +115,9 @@ export default {
     /* animate right menu on button click */
     toggleNavbarRight() {
       const el = $('#top-menu');
-      // const divHeight = el.height();
       const position = el.position();
-      // const buttonWidth = $('#navbar-right-toggler').width();
       const width = el.width();
       const documentWidth = $(document).width();
-      // console.log('Div height: ' + divHeight);
-      // console.log(
-      //   'Position - left: ' + position.left + ' top: ' + position.top,
-      // );
-      // console.log('element Width: ' + width);
-      // console.log('Button width: ' + buttonWidth);
-      // console.log('documentWidth: ' + documentWidth);
 
       if (position.left < documentWidth) {
         el.animate({
@@ -149,8 +137,6 @@ export default {
         const el = $('#bottom-menu');
         const buttonName = $('#mobile-nav-toggle');
         const divHeight = el.height();
-        // const position = el.position();
-        // const offset = el.offset();
         const menuHeight = $('#portrait-menu').height();
         if (divHeight <= 80) {
           el.animate({

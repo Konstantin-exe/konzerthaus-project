@@ -43,7 +43,6 @@
               />
             </div>
           </div>
-          <!-- </figure> -->
         </div>
       </div>
     </div>
@@ -51,7 +50,6 @@
     <div class="container">
       <div ref="videos">
         <h1 class="video-h1">Videos</h1>
-        <!-- <h1>{{ showRoom.title.render }}</h1> -->
 
         <div class="row video-container">
           <template class="" v-for="video in videosInMain(showRoomId)">
@@ -60,13 +58,6 @@
               :key="video.id"
               @click="openModal(video.id)"
             >
-              <!-- <iframe
-                :src="videoThumbnail(showRoomId)"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen class="li-modal" name="circle-1" HERE
-                @click="openModal(showRoomId)"
-              /> -->
               <div :key="video.name" class="single-video-container li-modal">
                 <img :src="videoThumbnail(video.id)" alt="" />
                 {{ video.title.rendered }}
@@ -80,7 +71,6 @@
 </template>
 
 <script>
-// import axios from 'axios';
 import Modal from './Modal.vue';
 export default {
   components: { Modal },
@@ -192,22 +182,19 @@ export default {
     },
 
     openModal(id) {
-      const video = this.$store.state.dataFromPagesApi.find((content) => {
+      this.$store.state.dataFromPagesApi.find((content) => {
         if (content.meta_box.content_type === 'video' && content.id === id) {
           return true;
         }
         return false;
       });
-      const videoId = video.id;
       const modalVideo = this.$store.state.dataFromPagesApi.find((content) => {
         if (content.id === id) {
           return true;
         }
       });
       this.modalOpen = !this.modalOpen;
-      // this.videoId = id;
       this.video = modalVideo;
-      console.log('modalvideo', videoId);
     },
 
     goto(ref) {
@@ -227,9 +214,6 @@ export default {
     dataFromMediaApi() {
       return this.$store.state.dataFromMediaApi;
     },
-    // pagesLoaded() {
-    //   return this.$store.state.pageLoaded;
-    // },
     showRoomId() {
       const selectedRoom = this.$store.state.dataFromPagesApi.find(
         (content) => content.slug === this.$route.params.slug,
@@ -241,7 +225,6 @@ export default {
   created() {
     this.$store.dispatch('fetchDataFromPagesApi');
     this.$store.dispatch('fetchDataFromMediaApi');
-    // this.$store.dispatch('pagesLoaded');
   },
 };
 </script>
@@ -257,10 +240,6 @@ export default {
 
 img.mobile-room-image {
   display: block;
-  /* min-width: 371px; */
-  /* max-width: 576px; */
-  /* margin-left: auto;
-  margin-right: auto; */
 }
 
 /* Mobile menu visible only on mobile  */
@@ -309,7 +288,6 @@ img.mobile-room-image {
   .content {
     margin-top: 10px;
     padding-top: 62px;
-    /* justify-content: center; */
   }
   .roomImage {
     margin-bottom: -90px;
@@ -415,8 +393,6 @@ circle:hover {
   width: 320px;
 }
 .single-video-container img {
-  /* display: flex; */
-  /* flex-direction: row; */
   width: 310px;
   height: 180px;
 }
@@ -428,20 +404,9 @@ circle:hover {
   border: none;
   flex-wrap: wrap;
   width: auto;
-  /* padding-top: 3%; */
   padding-bottom: 5%;
-  /* margin-right: 10px; */
 
   overflow: hidden;
-}
-
-.videoWrapper a {
-  /* display: block; */
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 0; */
-  /* width: auto; */
-  /* height: 100%; */
 }
 
 .logo-top {

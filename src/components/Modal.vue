@@ -78,7 +78,7 @@ export default {
   methods: {
     clean() {
       return DOMPurify.sanitize(this.video.content.rendered, {
-        FORBID_TAGS: ['p'],
+        FORBID_TAGS: ['p', 'br'],
       });
     },
   },
@@ -116,7 +116,6 @@ export default {
 }
 
 .modal-container {
-  /* position: relative; */
   justify-content: center;
   width: 70%;
   margin: 40px auto;
@@ -129,7 +128,6 @@ export default {
 }
 
 .modal-body {
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   height: 50vh;
@@ -138,10 +136,8 @@ export default {
   overflow: auto;
 }
 #modal-video {
-  /* position: absolute; */
-  height: 70%;
+  height: 50%;
   width: 100%;
-  /* margin-top: 20px; */
 }
 
 .modal-default-button {
